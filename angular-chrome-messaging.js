@@ -1,6 +1,26 @@
 'use strict';
 
 (function () {
+  /**
+   * Return a function which can only be executed once.
+   *
+   * Stolen from {@link http://davidwalsh.name/javascript-once}
+   *
+   * @param {Function} fn
+   * @returns {Function}
+   */
+  function once(fn) {
+    var result;
+
+    return function() {
+      if (fn) {
+        result = fn.apply(this, arguments);
+        fn = null;
+      }
+      return result;
+    };
+  }
+
   /*
    * angular-chrome-messaging uses `chrome.runtime.connect` to allow
    * separate sandboxed scripts to pass data between each other.
@@ -269,6 +289,7 @@
 
     /**
      * Bind the remote variable to the local controller and variable.
+     * Return a promise which is resolved when variable has bound successfully.
      *
      * @param moduleName
      * @param hostVariableName
@@ -278,7 +299,7 @@
       var bindToAccessors = function (getter, setter) {
         // Return a promise that's resolved when binding has completed with a non-null, non-undefined value
         return $q(function (resolve) {
-          var bindLocalToHost = _.once(function () {
+          var bindLocalToHost = once(function () {
             // Set the remote variable when the local one changes
             $rootScope.$watch(function () {
               return getter();
@@ -287,13 +308,14 @@
             });
           });
 
-          var resolveOnce = _.once(resolve);
+          var resolveOnce = once(resolve);
 
           // Subscribe to the getter method on the host
           ChromeMessaging.subscribe(moduleName, '__cm_get_' + hostVariableName).then(null, null, function notified(newValue) {
             setter(newValue);
 
-            // When the local variable has been set the first time, then bind the local variable to the host
+            // When the local variable has been set the first time, bind the local variable to the host
+            // by attaching a `$watch` listener.
             bindLocalToHost();
 
             // Once the local variable is assigned a non-null, non-undefined value, resolve the promise
