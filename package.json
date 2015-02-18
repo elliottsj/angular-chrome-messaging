@@ -1,0 +1,22 @@
+{
+  "name": "angular-chrome-messaging",
+  "version": "0.0.1",
+  "description": "AngularJS interface for chrome.runtime messaging. Allows for remote procedure calls and data binding.",
+  "main": "angular-chrome-messaging.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elliottsj/angular-chrome-messaging.git"
+  },
+  "author": "Spencer Elliott <me@elliottsj.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elliottsj/angular-chrome-messaging/issues"
+  },
+  "homepage": "https://github.com/elliottsj/angular-chrome-messaging"
+}

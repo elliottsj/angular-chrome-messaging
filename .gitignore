@@ -1,11 +1,5 @@
 node_modules
-temp
-.tmp
-dist
-
-# JetBrains IDEs
-.idea
-
-# OS files
-Thumbs.db
-.DS_Store
+/temp
+/.tmp
+/example/debug
+/example/dist
