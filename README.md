@@ -3,6 +3,9 @@ angular-chrome-messaging
 
 AngularJS interface for chrome.runtime messaging. Allows for remote procedure calls and data binding.
 
+_NOTE: With Facebook's introduction of the [Flux Architecture](https://facebook.github.io/flux/), the two-way
+data binding provided by this module has become poor practice, so I wouldn't recommend it for most situations._
+
 ## Overview
 
 [Google Chrome Extensions](https://developer.chrome.com/extensions/overview) usually consist of:
