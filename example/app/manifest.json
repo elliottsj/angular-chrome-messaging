@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "angular-chrome-messaging-example",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A demonstration of angular-chrome-messaging",
   "homepage_url": "https://github.com/elliottsj/angular-chrome-messaging",
   "background": {

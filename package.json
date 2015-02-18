@@ -1,6 +1,6 @@
 {
   "name": "angular-chrome-messaging",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AngularJS interface for chrome.runtime messaging. Allows for remote procedure calls and data binding.",
   "main": "angular-chrome-messaging.js",
   "directories": {
