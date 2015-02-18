@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="ChromeMessagingExampleOptions" ng-csp>
+<head>
+  <title>Chrome Messaging Example Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body ng-controller="OptionsCtrl as opt">
+  <form ng-if="!opt.isLoggedIn()" ng-submit="opt.login()">
+    <label for="email">Email address:</label>
+    <input id="email" type="email" ng-model="opt.inputEmail">
+    <label for="name">Name:</label>
+    <input id="name" type="text" ng-model="opt.inputName">
+    <input type="submit" value="Login">
+  </form>
+  <span ng-if="opt.isLoggedIn()">Logged in as {{opt.user.name}}</span>
+  <script src="options.js"></script>
+</body>
+</html>

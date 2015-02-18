@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "angular-chrome-messaging-example",
+  "version": "0.0.1",
+  "description": "A demonstration of angular-chrome-messaging",
+  "homepage_url": "https://github.com/elliottsj/angular-chrome-messaging",
+  "background": {
+    "page": "background/background.html"
+  },
+  "browser_action": {
+    "default_title": "angular-chrome-messaging",
+    "default_popup": "popup/popup.html"
+  },
+  "options_page": "options/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "contentscript/contentscript.css"
+      ],
+      "js": [
+        "contentscript/contentscript.js"
+      ]
+    }
+  ],
+  "permissions": [
+
+  ]
+}
